@@ -7,12 +7,20 @@ const Home = () => {
   const [selectedGenre, setSelectedGenre] = useState<Quest['type'] | null>(
     null
   );
+  const [genres, setGenres] = useState<
+    { id: number; label: string; type: string | null; icon: string }[]
+  >([]);
 
   useEffect(() => {
     fetch('http://localhost:3000/quests')
       .then(res => res.json())
       .then(data => setQuests(data))
       .catch(() => console.log('Ошибка загрузки'));
+
+    fetch('http://localhost:3000/genres')
+      .then(res => res.json())
+      .then(data => setGenres(data))
+      .catch(() => console.log('Ошибка загрузки жанров'));
   }, []);
 
   let filteredQuests = quests;
@@ -22,35 +30,11 @@ const Home = () => {
     );
   }
 
-  const genres = [
-    { id: 1, label: 'All quests', type: null, icon: '/icons/all_quests.svg' },
-    {
-      id: 2,
-      label: 'Adventure',
-      type: 'Adventure',
-      icon: '/icons/adventure.svg',
-    },
-    { id: 3, label: 'Horror', type: 'Horror', icon: '/icons/horror.svg' },
-    {
-      id: 4,
-      label: 'Mysticism',
-      type: 'Mysticism',
-      icon: '/icons/mysticism.svg',
-    },
-    {
-      id: 5,
-      label: 'Detective',
-      type: 'Detective',
-      icon: '/icons/detective.svg',
-    },
-    { id: 6, label: 'Sci-Fi', type: 'Sci-Fi', icon: '/icons/sci-fi.svg' },
-  ];
-
   return (
-    <div className="bg-bgcolor text-primary p-4">
-      <main className="container mx-auto py-8">
+    <div className="bg-bgcolor text-primary p-4 min-h-screen flex flex-col">
+      <main className="container mx-auto py-8 mt-20 flex-grow">
         <p className="text-accent text-lg pl-4 md:pl-32">Quests in Toronto</p>
-        <h1 className="text-6xl font-bold mb-20 mt-4 text-white pl-4 md:pl-32">
+        <h1 className="text-7xl font-bold mb-20 mt-4 text-white pl-4 md:pl-32">
           Choose a theme
         </h1>
         <section className="flex flex-wrap justify-center items-center gap-6 md:gap-x-12 px-4 md:px-32 w-full">

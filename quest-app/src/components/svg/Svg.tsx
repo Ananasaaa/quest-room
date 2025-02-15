@@ -19,4 +19,4 @@ const MenuIcon = ({ isOpen }: MenuIconProps) => (
   </svg>
 );
 
-export default MenuIcon;
+export { MenuIcon };
