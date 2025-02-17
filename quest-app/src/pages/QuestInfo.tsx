@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Quest } from '../utils/type';
+import BookingModal from './BookingModal';
 
 const QuestDetails = () => {
   const { id } = useParams<{ id: string }>();
   const [quest, setQuest] = useState<Quest | null>(null);
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
 
   useEffect(() => {
     const fetchQuest = async () => {
@@ -62,11 +64,18 @@ const QuestDetails = () => {
             </div>
           </div>
           <p className="text-lg mb-8">{quest.description}</p>
-          <button className="bg-accent text-white font-bold py-5 px-14 rounded-full">
+          <button
+            className="bg-accent text-white font-bold py-5 px-14 rounded-full"
+            onClick={() => setIsBookingOpen(true)}
+          >
             Забронировать
           </button>
         </div>
       </div>
+      <BookingModal
+        isOpen={isBookingOpen}
+        onClose={() => setIsBookingOpen(false)}
+      />
     </div>
   );
 };
