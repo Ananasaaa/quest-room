@@ -8,6 +8,7 @@ module.exports = {
         primary: '#E6E6E6',
         bgcolor: '#1C1C1C',
         bgcolorform: '#3D3333',
+        btnform: '#B8B8B8',
       },
     },
   },
