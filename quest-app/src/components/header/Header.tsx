@@ -12,7 +12,7 @@ const Header = () => {
   };
 
   return (
-    <header className="w-full bg-transparent z-20 text-white">
+    <header className="absolute w-full bg-transparent z-20 text-white">
       <div className="container mx-auto flex items-center justify-between py-4 px-6">
         <div className="flex items-center">
           <NavLink to="/">

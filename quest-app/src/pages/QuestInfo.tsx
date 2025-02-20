@@ -38,7 +38,8 @@ const QuestDetails = () => {
       className="relative min-h-screen bg-cover bg-left"
       style={{
         backgroundImage: `url(/img/cover-${quest?.name?.replace(/\s/g, '').toLowerCase() || ''}.jpg)`,
-        backgroundPosition: '-80px center',
+        backgroundPosition: 'center center',
+        backgroundSize: 'cover',
       }}
     >
       <div className="absolute inset-0 bg-black bg-opacity-50"></div>

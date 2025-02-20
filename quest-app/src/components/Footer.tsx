@@ -6,7 +6,7 @@ const Footer = () => {
   const [vkIcon, setVkIcon] = useState('/icons/vk-default.svg');
 
   return (
-    <footer className="w-full bg-transparent py-4 flex items-center justify-start px-6 bottom-0 left-0 right-0 z-10">
+    <footer className="absolute w-full bg-transparent py-4 flex items-center justify-start px-6 bottom-0 left-0 right-0 z-10">
       <Link to="https://skype.com">
         <img
           src={skypeIcon}
